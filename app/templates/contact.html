@@ -1,0 +1,53 @@
+
+ <!DOCTYPE html>
+ <html>
+  <head>
+   
+   <link rel=stylesheet type=text/css href="{{ url_for('static/css', filename="form.css") }}">
+ 
+  </head>
+  
+  <body>
+ <header>
+  {%includes 'header.html'%}
+ </header>  
+ 
+ <form method="POST" action="{{ url_for('contact') }}">
+  {{ form.csrf_token }}
+ <h3 class= 'head'> Contact Form</h3>
+ <p>Fill in this form to contact site owners.</p>
+ 
+ <div>  
+ {{form.name.label}}
+ <br>
+ <p>Please enter your full name</p>
+ {{ form.name }}
+ {{ form.name(size=20) }} 
+ </div>
+<div>
+ {{ form.email.label }}
+ <br>
+ <p>Please enter your email address</p>
+ {{ form.email }}
+ {{ form.email(size=20) }}
+</div>
+ <div>
+ {{ form.subject.label }}
+ <br>
+ <p>Please enter the subject for your message</p>
+ {{ form.subject }}
+ {{ form.subject(size=20) }}
+ </div>
+<div id = 'msg'>
+  {{ form.message.label }}
+  <br>
+  Please enter the message you would like to send
+ {{ form.message }}
+ {{ form.message(size=40) }}
+</div>
+
+ <br>
+<button type="submit"> Send </button> 
+</form>
+</body>
+ </html>
